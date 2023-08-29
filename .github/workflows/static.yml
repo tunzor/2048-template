@@ -29,4 +29,6 @@ jobs:
         uses: actions/deploy-pages@v2
       - name: Notify Slack channel
         run: |
-        curl -X POST -H 'Content-type: application/json' --data '{"text":"Successful deployment of ${{ GITHUB_REPOSITORY }}!"}' ${{ secrets.SLACK_HOOK_URL }}}
+          curl -X POST -H 'Content-type: application/json' \
+          --data "{'text':'Successful deployment of *${GITHUB_REPOSITORY}* \nURL: ${{ steps.deployment.outputs.page_url }}'}" \
+          ${{ secrets.SLACK_HOOK_URL }}
