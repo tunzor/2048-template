@@ -2,6 +2,8 @@ name: Deploy app to Github pages
 on:
   push:
     branches: ["main"]
+    paths:
+      - '/app'
 permissions:
   contents: read
   pages: write
