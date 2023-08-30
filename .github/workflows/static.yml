@@ -32,5 +32,5 @@ jobs:
       - name: Notify Slack channel
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{'text':'Successful deployment of *${GITHUB_REPOSITORY}* \nURL: ${{ steps.deployment.outputs.page_url }}'}" \
+          --data "{'text':'Successful deployment of *${GITHUB_REPOSITORY}* \nGitHub Pages URL: ${{ steps.deployment.outputs.page_url }} \nRedirect URL: http://${{ github.event.repository.name }}.hathatgames.com'}" \
           ${{ secrets.SLACK_HOOK_URL }}
